@@ -86,14 +86,36 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/lib/core.js":
+/*!****************************!*\
+  !*** ./src/js/lib/core.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(() => {
+  const $ = function (selector) {
+    const elements = document.querySelectorAll(selector);
+  };
+
+  window.$ = $;
+})();
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-console.log('Hello!');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/core */ "./src/js/lib/core.js");
+/* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lib_core__WEBPACK_IMPORTED_MODULE_0__);
+
+$('div');
 
 /***/ })
 

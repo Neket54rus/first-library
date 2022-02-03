@@ -1,1 +1,4 @@
-console.log('Hello!');
+import './lib/core'
+
+$('div')
+
