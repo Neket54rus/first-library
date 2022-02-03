@@ -1,6 +1,3 @@
 import './lib/lib'
 
-$('.btn').click(function () {
-	$('.main').toggleClass('active')
-	console.log($(this))
-})
+$('.btn').setAttr('disable').removeAttr('disable')
