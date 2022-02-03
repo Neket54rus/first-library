@@ -96,6 +96,23 @@
 (() => {
   const $ = function (selector) {
     const elements = document.querySelectorAll(selector);
+    const obj = {};
+
+    obj.hide = () => {
+      elements.forEach(element => {
+        element.style.display = 'none';
+      });
+      return obj;
+    };
+
+    obj.show = () => {
+      elements.forEach(element => {
+        element.style.display = '';
+      });
+      return obj;
+    };
+
+    return obj;
   };
 
   window.$ = $;
@@ -115,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/core */ "./src/js/lib/core.js");
 /* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lib_core__WEBPACK_IMPORTED_MODULE_0__);
 
-$('div');
+$('.active').hide();
 
 /***/ })
 

@@ -1,4 +1,4 @@
 import './lib/core'
 
-$('div')
+$('.active').hide()
 
