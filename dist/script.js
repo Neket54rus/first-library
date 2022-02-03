@@ -127,10 +127,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./src/js/lib/core.js");
 /* harmony import */ var _modules_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/display */ "./src/js/lib/modules/display.js");
 /* harmony import */ var _modules_classes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/classes */ "./src/js/lib/modules/classes.js");
+/* harmony import */ var _modules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/actions */ "./src/js/lib/modules/actions.js");
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (_core__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./src/js/lib/modules/actions.js":
+/*!***************************************!*\
+  !*** ./src/js/lib/modules/actions.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    if (!this[i].addEventListener) {
+      continue;
+    }
+
+    this[i].addEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
+  if (!eventName || !callback) {
+    return this;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    if (!this[i].removeEventListener) {
+      continue;
+    }
+
+    this[i].removeEventListener(eventName, callback);
+  }
+
+  return this;
+};
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
+  for (let i = 0; i < this.length; i++) {
+    if (!this[i].addEventListener) {
+      continue;
+    }
+
+    if (handler) {
+      this[i].addEventListener('click', handler);
+    } else {
+      this[i].click();
+    }
+  }
+
+  return this;
+};
 
 /***/ }),
 
@@ -148,6 +212,10 @@ __webpack_require__.r(__webpack_exports__);
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function () {
   for (let i = 0; i < this.length; i++) {
+    if (!this[i].classList) {
+      continue;
+    }
+
     this[i].classList.add(...arguments);
   }
 
@@ -156,6 +224,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function () {
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function () {
   for (let i = 0; i < this.length; i++) {
+    if (!this[i].classList) {
+      continue;
+    }
+
     this[i].classList.remove(...arguments);
   }
 
@@ -164,6 +236,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function (
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggleClass = function (classNames) {
   for (let i = 0; i < this.length; i++) {
+    if (!this[i].classList) {
+      continue;
+    }
+
     this[i].classList.toggle(classNames);
   }
 
@@ -237,8 +313,17 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.toggleDisplay = function
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
 
-$('div').hide().show();
-$('.active').addClass('blue', 'big');
+
+function sayOn() {
+  console.log('on');
+}
+
+function sayClick() {
+  console.log('Click');
+}
+
+$('.main').on('click', sayOn);
+$('.main').click(sayClick);
 
 /***/ })
 
