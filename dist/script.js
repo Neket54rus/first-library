@@ -154,6 +154,14 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.addClass = function () {
   return this;
 };
 
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.removeClass = function () {
+  for (let i = 0; i < this.length; i++) {
+    this[i].classList.remove(...arguments);
+  }
+
+  return this;
+};
+
 /***/ }),
 
 /***/ "./src/js/lib/modules/display.js":
