@@ -1,5 +1,5 @@
 import './lib/lib'
 
 $('div').hide().show()
-$('.active').toggleDisplay()
+$('.active').addClass('blue', 'big')
 
